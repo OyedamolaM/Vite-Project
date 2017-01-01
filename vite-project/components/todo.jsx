@@ -20,6 +20,7 @@ class Todo extends React.Component{
       <div>
         <input type="checkbox" checked = {this.props.checked} onChange={()=> this.props.handleChange(this.props.id)}/>
         <p>{this.props.activity}</p>
+        <p>this is a boy</p>
       </div>
       </> 
     )
