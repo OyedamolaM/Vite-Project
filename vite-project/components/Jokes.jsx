@@ -2,6 +2,7 @@ import React from "react";
 
 class Jokes extends React.Component{
   render(){
+    let time
     return(
       <div>
       <h1 style={{display: !this.props.question && "none"}}> Question : {this.props.question}</h1>
