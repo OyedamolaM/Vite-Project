@@ -8,7 +8,9 @@ import Jokes from '../components/Jokes.jsx';
 import JokesData from '../components/data/JokesData.jsx';
 import TodoItems from '../components/data/TodosData.jsx';
 import React from 'react';
-
+import HandleClick from '../components/HancleClick.jsx';
+import ChangingState from '../components/ChangingState.jsx';
+import stateExample from '../components/stateExample.jsx';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -40,6 +42,24 @@ import React from 'react';
 // }
 
 class App extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+          todoState: TodoItems
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(id){
+    this.setState(prevState)
+    const upDateTodos = prevState.todoState.map(todo=>{(todo.id === id? todo.completed =!todo.completed: todo.completed)
+      return todo
+    })
+    return(todoState = upDateTodos)
+  
+        
+  }
+
   render(){
     const firstName = "oyedamola"
   const lastName = "moreira"
@@ -54,7 +74,7 @@ class App extends React.Component{
   const jokeComponents = JokesData.map(joke =>
      <Jokes key={joke.id} question={joke.question} punchline={joke.punchline}/>
   )
-  const todosComponents = TodoItems.map(action => <Todo key={action.id} activity ={action.activity} checked= {action.completed}/>)
+  const todosComponents = TodoItems.map(action => <Todo key={action.id} handleChange={this.handleChange} activity ={action.activity} checked= {action.completed} id = {action.id}/>)
   
     return(
       <>
@@ -69,6 +89,9 @@ class App extends React.Component{
       <div>
       {todosComponents}
       {jokeComponents}
+      <HandleClick/>
+      <ChangingState/>
+      {/* <stateExample count={this.state.count}/> */}
       </div>
       </>
     )

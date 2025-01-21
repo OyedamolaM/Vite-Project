@@ -15,7 +15,7 @@ const TodoItems = [
     completed: false
 },
 {
-    id: 4,
+    id: "4",
     activity: "preach the gospel",
     completed: false
 },
